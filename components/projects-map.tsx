@@ -75,7 +75,7 @@ function MapPinItem({
           src={thumbSrc}
           alt={project.title}
           fill
-          className="object-contain bg-black object-center"
+          className="object-cover bg-black object-center"
           sizes="56px"
           placeholder="blur"
           blurDataURL={BLUR_DATA_URL}
@@ -123,13 +123,13 @@ function ProjectDetailModal({
     const isPortrait = mediaModeBySrc[item] === "portrait"
 
     return (
-      <CarouselItem key={item} className="h-full bg-black pl-0">
+      <CarouselItem key={item} className="h-full bg-sky-200/20 pl-0">
         {isVideoSrc(item) ? (
-          <div className="relative h-full w-full bg-black/85">
+          <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-sky-200/20">
             {isPortrait && (
               <video
                 src={item}
-                className="absolute inset-0 h-full w-full scale-125 object-contain object-center blur-2xl opacity-35"
+                className="pointer-events-none absolute inset-0 m-auto max-h-full max-w-full scale-125 object-contain object-center blur-2xl opacity-35"
                 muted
                 autoPlay
                 loop
@@ -140,7 +140,7 @@ function ProjectDetailModal({
             <video
               src={item}
               controls
-              className="relative z-10 h-full w-full object-contain object-center"
+              className="relative z-10 max-h-full max-w-full object-contain object-center"
               muted
               autoPlay
               loop
@@ -158,25 +158,25 @@ function ProjectDetailModal({
             />
           </div>
         ) : (
-          <div className="relative h-full w-full bg-black/85">
+          <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-sky-200/20">
             {isPortrait && (
               <img
                 src={item}
                 alt=""
-                className="absolute inset-0 h-full w-full scale-125 object-contain object-center blur-2xl opacity-35"
+                className="pointer-events-none absolute inset-0 m-auto max-h-full max-w-full scale-125 object-contain object-center blur-2xl opacity-35"
                 aria-hidden
               />
             )}
             <button
               type="button"
               onClick={() => setLightboxSrc(item)}
-              className="relative z-10 h-full w-full cursor-zoom-in"
+              className="relative z-10 flex h-full w-full cursor-zoom-in items-center justify-center"
               aria-label="打开大图预览"
             >
               <img
                 src={item}
                 alt={`${project.title} - 图片 ${idx + 1}`}
-                className="h-full w-full object-contain object-center"
+                className="max-h-full max-w-full object-contain object-center"
                 loading="lazy"
                 onLoad={(event) => {
                   const image = event.currentTarget
@@ -210,15 +210,15 @@ function ProjectDetailModal({
             {project.title} Project Details
           </DialogTitle>
           {/* Top: Media Carousel */}
-          <div className="relative flex aspect-video max-h-[50vh] shrink items-center justify-center overflow-hidden bg-black">
+          <div className="relative flex aspect-video max-h-[50vh] shrink items-center justify-center overflow-hidden bg-sky-200/20">
             <Carousel
               opts={{ align: "start", loop: true }}
-              className="h-full w-full"
+              className="h-full w-full [&>[data-slot=carousel-content]]:h-full [&>[data-slot=carousel-content]>div]:h-full [&_[data-slot=carousel-item]]:h-full"
               setApi={setCarouselApi}
             >
               <CarouselContent className="h-full">
                 {mediaList.length === 0 ? (
-                  <CarouselItem className="h-full bg-black pl-0">
+                  <CarouselItem className="h-full bg-sky-200/20 pl-0">
                     <div className="flex h-full w-full items-center justify-center bg-gray-900 text-sm text-gray-300">
                       Loading media...
                     </div>
@@ -416,7 +416,7 @@ export function ProjectsMap({
                           src={item.src}
                           alt={item.alt}
                           fill
-                          className="object-contain bg-black object-center transition-transform duration-500 group-hover:scale-105"
+                          className="object-cover bg-black object-center transition-transform duration-500 group-hover:scale-105"
                           sizes="(max-width: 768px) 100vw, 50vw, 33vw"
                           placeholder="blur"
                           blurDataURL={BLUR_DATA_URL}
