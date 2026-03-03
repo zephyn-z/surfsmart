@@ -7,32 +7,36 @@ import Image from "next/image"
 
 const models = [
   {
-    name: "WavePro X1",
-    subtitle: "Competition Series",
-    image: "/images/models/model-1.png",
+    name: "Mobile version of the surfing simulator",
+    subtitle: "SS-M-Z30--2",
+    image: "/images/models/model-1.jpg",
+    badge: null,
     description:
-      "Professional-grade barrel wave machine, ideal for competitive surfing venues and training centers.",
+      "Mobile assembly, all stainless steel structure, 2*30KW axial flow pumps",
   },
   {
-    name: "FlowRider S2",
-    subtitle: "Indoor Series",
-    image: "/images/models/model-2.png",
+    name: "Mobile upgraded version of the surfing simulator",
+    subtitle: "SS-M-Z37-2",
+    image: "/images/models/model-2.jpg",
+    badge: null,
     description:
-      "Compact indoor standing-wave machine, perfect for clubs, gyms, and entertainment centers.",
+      "Mobile assembly, all stainless steel structure, 2*37KW axial flow pumps",
   },
   {
-    name: "TideForce M3",
-    subtitle: "Commercial Series",
-    image: "/images/models/model-3.png",
+    name: "Double professional surfing simulator",
+    subtitle: "SS-PH-Z37-6",
+    image: "/images/models/model-3.jpg",
+    badge: "Concrete / Stainless Steel",
     description:
-      "High-capacity commercial wave pool system designed for water parks and large resort complexes.",
+      "6 *37KW custom axial flow pump and concrete structure pool",
   },
   {
-    name: "AquaElite V4",
-    subtitle: "Luxury Series",
-    image: "/images/models/model-4.png",
+    name: "Triple professional surfing simulators",
+    subtitle: "SS-PH-Z37-8",
+    image: "/images/models/model-4.jpg",
+    badge: "Concrete / Stainless Steel",
     description:
-      "Premium residential surf pool designed for luxury villas, boutique resorts, and private estates.",
+      "8*37KW axial flow pumps and concrete structure pool",
   },
 ]
 
@@ -67,17 +71,19 @@ function ModelCard({
             console.warn(`Warning: missing model image ${model.image}`)
           }}
         />
-        <div
-          className={`absolute ${compact ? "bottom-2 left-2" : "bottom-3 left-3"}`}
-        >
-          <span
-            className={`rounded-md bg-foreground/80 font-medium text-background backdrop-blur-sm ${
-              compact ? "px-2 py-0.5 text-[10px]" : "px-3 py-1 text-xs"
-            }`}
+        {model.badge ? (
+          <div
+            className={`absolute ${compact ? "bottom-2 left-2" : "bottom-3 left-3"}`}
           >
-            Concrete / Stainless Steel
-          </span>
-        </div>
+            <span
+              className={`rounded-md bg-foreground/80 font-medium text-background backdrop-blur-sm ${
+                compact ? "px-2 py-0.5 text-[10px]" : "px-3 py-1 text-xs"
+              }`}
+            >
+              {model.badge}
+            </span>
+          </div>
+        ) : null}
       </div>
 
       <div className={compact ? "p-3" : "p-5"}>

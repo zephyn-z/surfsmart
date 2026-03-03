@@ -106,6 +106,16 @@ function ProjectDetailModal({
   >({})
 
   useEffect(() => {
+    if (!open) {
+      setLightboxSrc(null)
+    }
+  }, [open])
+
+  useEffect(() => {
+    setLightboxSrc(null)
+  }, [project?.id])
+
+  useEffect(() => {
     if (!carouselApi) return
     const updateCurrent = () => setActiveIndex(carouselApi.selectedScrollSnap())
     updateCurrent()
@@ -123,9 +133,9 @@ function ProjectDetailModal({
     const isPortrait = mediaModeBySrc[item] === "portrait"
 
     return (
-      <CarouselItem key={item} className="h-full bg-sky-200/20 pl-0">
+      <CarouselItem key={item} className="h-full bg-sky-900/35 pl-0">
         {isVideoSrc(item) ? (
-          <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-sky-200/20">
+          <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-sky-200/22">
             {isPortrait && (
               <video
                 src={item}
@@ -158,7 +168,7 @@ function ProjectDetailModal({
             />
           </div>
         ) : (
-          <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-sky-200/20">
+          <div className="relative flex h-full w-full items-center justify-center overflow-hidden bg-sky-200/22">
             {isPortrait && (
               <img
                 src={item}
@@ -203,14 +213,14 @@ function ProjectDetailModal({
     <>
       <Dialog open={open} onOpenChange={(isOpen) => !isOpen && onClose()}>
         <DialogContent
-          className="flex max-h-[90vh] flex-col overflow-y-auto border-0 bg-white/90 p-0 shadow-2xl backdrop-blur-xl dark:bg-card/90 max-md:fixed max-md:bottom-0 max-md:left-0 max-md:right-0 max-md:top-auto max-md:max-h-[92vh] max-md:translate-y-0 max-md:rounded-t-2xl max-md:border-t md:max-w-xl"
+          className="flex max-h-[90vh] flex-col overflow-y-auto border-0 bg-white/90 p-0 shadow-2xl backdrop-blur-xl dark:bg-card/90 max-md:fixed max-md:bottom-0 max-md:left-0 max-md:right-0 max-md:top-auto max-md:max-h-[92vh] max-md:max-w-none max-md:translate-x-0 max-md:translate-y-0 max-md:rounded-t-2xl max-md:border-t md:max-w-xl"
           showCloseButton={true}
         >
           <DialogTitle className="sr-only">
             {project.title} Project Details
           </DialogTitle>
           {/* Top: Media Carousel */}
-          <div className="relative flex aspect-video max-h-[50vh] shrink items-center justify-center overflow-hidden bg-sky-200/20">
+          <div className="relative flex aspect-video max-h-[50vh] shrink items-center justify-center overflow-hidden bg-sky-900/35">
             <Carousel
               opts={{ align: "start", loop: true }}
               className="h-full w-full [&>[data-slot=carousel-content]]:h-full [&>[data-slot=carousel-content]>div]:h-full [&_[data-slot=carousel-item]]:h-full"
@@ -218,7 +228,7 @@ function ProjectDetailModal({
             >
               <CarouselContent className="h-full">
                 {mediaList.length === 0 ? (
-                  <CarouselItem className="h-full bg-sky-200/20 pl-0">
+                  <CarouselItem className="h-full bg-sky-900/35 pl-0">
                     <div className="flex h-full w-full items-center justify-center bg-gray-900 text-sm text-gray-300">
                       Loading media...
                     </div>
