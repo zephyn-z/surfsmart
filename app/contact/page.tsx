@@ -103,18 +103,18 @@ export default function ContactPage() {
               </h3>
               <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
                 <a
-                  href="mailto:info@surfsmart.com"
+                  href="mailto:surfsmart_inc@163.com"
                   className="flex items-center gap-2 transition-colors hover:text-foreground"
                 >
                   <Mail className="h-4 w-4 shrink-0" />
-                  info@surfsmart.com
+                  surfsmart_inc@163.com
                 </a>
                 <a
-                  href="tel:+8653288888888"
+                  href="tel:+8618628145993"
                   className="flex items-center gap-2 transition-colors hover:text-foreground"
                 >
                   <Phone className="h-4 w-4 shrink-0" />
-                  +86 532 8888 8888
+                  +86 186 2814 5993
                 </a>
                 <span className="flex items-center gap-2">
                   <MapPin className="h-4 w-4 shrink-0" />

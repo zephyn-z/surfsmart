@@ -19,7 +19,7 @@ const SOCIAL_ICONS = [
     id: "instagram",
     label: "Instagram",
     src: "/images/social/instagram.svg",
-    href: "https://www.linkedin.com/in/%E7%90%AA%E8%B5%9F-%E5%BC%A0-0565763b3/",
+    href: "https://www.instagram.com/surfsmart_inc?igsh=aTRzdmM1b28yZ241/",
     external: true,
   },
   {
