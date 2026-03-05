@@ -26,7 +26,7 @@ const SOCIAL_ICONS = [
     id: "linkedin",
     label: "LinkedIn",
     src: "/images/social/linkedin.svg",
-    href: "https://www.linkedin.com/in/%E7%90%AA%E8%B5%9F-%E5%BC%A0-0565763b3/",
+    href: "https://www.linkedin.com/in/zephyn-zhang-0565763b3/",
     external: true,
   },
   {
